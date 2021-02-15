@@ -6,6 +6,7 @@
     xmlns:model="clr-namespace:MyCoffeeApp.Models"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
+    x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
     BackgroundColor="White">
     <ContentPage.BindingContext>
@@ -13,25 +14,27 @@
     </ContentPage.BindingContext>
 
     <ListView
-        ItemSelected="ListView_ItemSelected"
-        ItemTapped="ListView_ItemTapped"
-        CachingStrategy="RecycleElement"
         BackgroundColor="Transparent"
-        HasUnevenRows="True"
-        ItemsSource="{Binding CoffeeGroups}"
-        IsGroupingEnabled="True"
+        CachingStrategy="RecycleElement"
         GroupDisplayBinding="{Binding Key}"
-        SeparatorVisibility="None"
+        HasUnevenRows="True"
+        IsGroupingEnabled="True"
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+        ItemsSource="{Binding CoffeeGroups}"
         RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red">
+        RefreshControlColor="Red"
+        SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
+        SeparatorVisibility="None">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
                     <ViewCell.ContextActions>
-                        <MenuItem Text="Favorite" Clicked="MenuItem_Clicked"/>
-                        <MenuItem Text="Delete" IsDestructive="True"/>
+                        <MenuItem
+                            Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.FavoriteCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="Favorite" />
+                        <MenuItem IsDestructive="True" Text="Delete" />
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
                         <Frame CornerRadius="20" HasShadow="True">
@@ -47,6 +50,13 @@
                                         Text="{Binding Roaster}"
                                         VerticalOptions="Center" />
                                 </StackLayout>
+
+                                <Button Text="Favorite"
+                                        Command="{Binding 
+                                    Source={RelativeSource 
+                                    AncestorType={x:Type viewmodels:CoffeeEquipmentViewModel}},
+                                    Path=FavoriteCommand}"
+                                        CommandParameter="{Binding .}"/>
                             </StackLayout>
                         </Frame>
                     </Grid>
@@ -55,14 +65,12 @@
         </ListView.ItemTemplate>
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Coffee of the World" />
+                <Label HorizontalOptions="Center" Text="Coffee of the World" />
             </StackLayout>
         </ListView.Header>
         <ListView.Footer>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="Load More"/>
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Button Text="Load More" />
             </StackLayout>
         </ListView.Footer>
     </ListView>
