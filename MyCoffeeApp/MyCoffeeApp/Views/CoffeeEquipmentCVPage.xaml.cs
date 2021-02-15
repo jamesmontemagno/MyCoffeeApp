@@ -1,23 +1,20 @@
-﻿using MyCoffeeApp.Models;
-using MyCoffeeApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace MyCoffeeApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CoffeeEquipmentPage : ContentPage
+    public partial class CoffeeEquipmentCVPage : ContentPage
     {
-        public CoffeeEquipmentPage()
+        public CoffeeEquipmentCVPage()
         {
             InitializeComponent();
-
         }
     }
 }
