@@ -93,5 +93,10 @@
     <FlyoutItem Title="Equipment - CV" Icon="icon_about.png">
         <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentCVPage}" Route="EquipmentPageCV" />
     </FlyoutItem>
-    
+
+
+    <FlyoutItem Title="My Coffee" Icon="icon_about.png">
+        <ShellContent ContentTemplate="{DataTemplate local:MyStoredCoffeePage}" Route="MyStoredCoffeePage" />
+    </FlyoutItem>
+
 </Shell>
