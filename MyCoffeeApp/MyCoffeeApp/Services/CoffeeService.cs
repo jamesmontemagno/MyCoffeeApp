@@ -1,4 +1,4 @@
-﻿using MyCoffeeApp.Models;
+﻿using MyCoffeeApp.Shared.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;

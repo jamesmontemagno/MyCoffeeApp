@@ -1,6 +1,6 @@
 ﻿using MvvmHelpers;
 using MvvmHelpers.Commands;
-using MyCoffeeApp.Models;
+using MyCoffeeApp.Shared.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;

@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="MyCoffeeApp.Views.MyStoredCoffeePage"
+    x:Class="MyCoffeeApp.Views.InternetCoffeePage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    x:Name="MyCoffeePage"
-    x:DataType="viewmodels:MyCoffeeViewModel"
+    x:Name="CoffeePage"
+    x:DataType="viewmodels:InternetCoffeeViewModel"
     BackgroundColor="White">
     <ContentPage.BindingContext>
-        <viewmodels:MyCoffeeViewModel />
+        <viewmodels:InternetCoffeeViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
@@ -21,7 +21,7 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
+        <ToolbarItem Command="{Binding AddCommand}" Text="Add" />
     </ContentPage.ToolbarItems>
 
 
@@ -41,7 +41,7 @@
                 <ViewCell>
                     <ViewCell.ContextActions>
                         <MenuItem
-                            Command="{Binding Source={x:Reference MyCoffeePage}, Path=BindingContext.RemoveCommand}"
+                            Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.RemoveCommand}"
                             CommandParameter="{Binding .}"
                             IsDestructive="True"
                             Text="Delete" />

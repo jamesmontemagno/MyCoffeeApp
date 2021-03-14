@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/MyCoffeeApp.WebAPI/Properties/ServiceDependencies/MotzCoffee - Web Deploy

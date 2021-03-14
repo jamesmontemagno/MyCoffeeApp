@@ -7,7 +7,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.Android", "MyCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.iOS", "MyCoffeeApp\MyCoffeeApp.iOS\MyCoffeeApp.iOS.csproj", "{D0CF2A5B-8BD6-4E6F-9FBC-AF984671D5FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp", "MyCoffeeApp\MyCoffeeApp\MyCoffeeApp.csproj", "{F26C65BA-26F3-4634-8AB4-A5148AF07A74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoffeeApp", "MyCoffeeApp\MyCoffeeApp\MyCoffeeApp.csproj", "{F26C65BA-26F3-4634-8AB4-A5148AF07A74}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{AD5BBCE8-77E8-4125-A662-C9D27DA69AA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.WebAPI", "MyCoffeeApp.WebAPI\MyCoffeeApp.WebAPI.csproj", "{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FF248677-3C9E-4555-BEDE-0534616C5570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.Shared", "MyCoffeeApp.Shared\MyCoffeeApp.Shared.csproj", "{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,9 +81,37 @@ Global
 		{F26C65BA-26F3-4634-8AB4-A5148AF07A74}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{F26C65BA-26F3-4634-8AB4-A5148AF07A74}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{F26C65BA-26F3-4634-8AB4-A5148AF07A74}.Release|iPhoneSimulator.Deploy.0 = Release|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Release|iPhone.Build.0 = Release|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Release|iPhone.Build.0 = Release|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{010E5404-AD37-4FC2-8B73-76A0F0AEBA66} = {AD5BBCE8-77E8-4125-A662-C9D27DA69AA2}
+		{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6} = {FF248677-3C9E-4555-BEDE-0534616C5570}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A07EF755-C9FA-49C3-92FF-549D449A8235}

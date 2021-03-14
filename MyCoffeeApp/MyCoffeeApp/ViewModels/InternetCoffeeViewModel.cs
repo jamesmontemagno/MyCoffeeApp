@@ -9,7 +9,7 @@ using Command = MvvmHelpers.Commands.Command;
 
 namespace MyCoffeeApp.ViewModels
 {
-    public class MyCoffeeViewModel : ViewModelBase
+    public class InternetCoffeeViewModel : ViewModelBase
     {
         public ObservableRangeCollection<Coffee> Coffee { get; set; }
         public AsyncCommand RefreshCommand { get; }
@@ -17,10 +17,10 @@ namespace MyCoffeeApp.ViewModels
         public AsyncCommand<Coffee> RemoveCommand { get; }
 
 
-        public MyCoffeeViewModel()
+        public InternetCoffeeViewModel()
         {
 
-            Title = "My Coffee";
+            Title = "Internet Coffee";
 
             Coffee = new ObservableRangeCollection<Coffee>();
   
@@ -34,13 +34,13 @@ namespace MyCoffeeApp.ViewModels
         {
             var name = await App.Current.MainPage.DisplayPromptAsync("Name", "Name of coffee");
             var roaster = await App.Current.MainPage.DisplayPromptAsync("Roaster", "Roaster of coffee");
-            await CoffeeService.AddCoffee(name, roaster);
+            await InternetCoffeeService.AddCoffee(name, roaster);
             await Refresh();
         }
 
         async Task Remove(Coffee coffee)
         {
-            await CoffeeService.RemoveCoffee(coffee.Id);
+            await InternetCoffeeService.RemoveCoffee(coffee.Id);
             await Refresh();
         }
 
@@ -52,7 +52,7 @@ namespace MyCoffeeApp.ViewModels
 
             Coffee.Clear();
 
-            var coffees = await CoffeeService.GetCoffee();
+            var coffees = await InternetCoffeeService.GetCoffee();
 
             Coffee.AddRange(coffees);
 
