@@ -19,16 +19,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\MyCoffee\AddMyCoffeePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\CoffeeEquipmentCVPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CoffeeEquipmentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\InternetCoffeePage.xaml">
+    <EmbeddedResource Update="Views\InternetCoffee\InternetCoffeePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MyStoredCoffeePage.xaml">
+    <EmbeddedResource Update="Views\MyCoffee\MyCoffeeDetailsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MyCoffee\MyStoredCoffeePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

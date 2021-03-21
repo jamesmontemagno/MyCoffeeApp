@@ -34,8 +34,14 @@
         ItemsSource="{Binding Coffee}"
         RefreshCommand="{Binding RefreshCommand}"
         RefreshControlColor="Red"
-        SelectionMode="None"
+        SelectionMode="Single"
         SeparatorVisibility="None">
+        <ListView.Behaviors>
+            <xct:EventToCommandBehavior
+                EventName="ItemSelected"
+                Command="{Binding SelectedCommand}"                
+                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+        </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>
