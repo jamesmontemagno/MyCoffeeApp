@@ -11,8 +11,9 @@ My reference sample app that I have been building out in my Xamarin 101 video se
 * [MVVM 101 - Model-View-ViewModel Architecture for Xamarin.Forms (also WPF, UWP, & More)](https://youtu.be/Pso1MeX_HvI)
 * [Better MVVM with MVVM Helpers (or Xamarin Community Toolkit)](https://youtu.be/y8ZqEOLDeo8)
 * [Xamarin.Forms ListView - Everything you need to know](https://youtu.be/VzFqQv8YJNM)
-* [MVVM for the Xamarin.Forms ListView](https://youtu.be/71K4PVRLasI)
-* [Xamarin.Forms ListView vs. CollectionView - Which to use and why!](https://youtu.be/_lVM9gpFSbw)
-* [Turn any Event into a Command in Xamarin.Forms (MVVM All The Things)](https://youtu.be/7mpe_1okwxk)
+* [MVVM for the Xamarin.Forms ListView](https://youtu.be/71K4PVRLasI) | branch - listview-databinding
+* [Xamarin.Forms ListView vs. CollectionView - Which to use and why!](https://youtu.be/_lVM9gpFSbw) | branch - collectionview
+* [Turn any Event into a Command in Xamarin.Forms (MVVM All The Things)](https://youtu.be/7mpe_1okwxk) | branch - event-to-command
 * [Adding a Database to Xamarin Apps](https://youtu.be/XFP8Np-uRWc)
-* [HTTP Web Requests with Data Caching](https://youtu.be/a37qBMt0V9w)
+* [HTTP Web Requests with Data Caching](https://youtu.be/a37qBMt0V9w) | branch - http-web-requests
+* Navigation - coming soon | branch - navigation
