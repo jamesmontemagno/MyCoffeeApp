@@ -14,3 +14,5 @@ My reference sample app that I have been building out in my Xamarin 101 video se
 * [MVVM for the Xamarin.Forms ListView](https://youtu.be/71K4PVRLasI)
 * [Xamarin.Forms ListView vs. CollectionView - Which to use and why!](https://youtu.be/_lVM9gpFSbw)
 * [Turn any Event into a Command in Xamarin.Forms (MVVM All The Things)](https://youtu.be/7mpe_1okwxk)
+* [Adding a Database to Xamarin Apps](https://youtu.be/XFP8Np-uRWc)
+* [HTTP Web Requests with Data Caching](https://youtu.be/a37qBMt0V9w)
