@@ -11,11 +11,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoffeeApp", "MyCoffeeApp\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{AD5BBCE8-77E8-4125-A662-C9D27DA69AA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.WebAPI", "MyCoffeeApp.WebAPI\MyCoffeeApp.WebAPI.csproj", "{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoffeeApp.WebAPI", "MyCoffeeApp.WebAPI\MyCoffeeApp.WebAPI.csproj", "{010E5404-AD37-4FC2-8B73-76A0F0AEBA66}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FF248677-3C9E-4555-BEDE-0534616C5570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCoffeeApp.Shared", "MyCoffeeApp.Shared\MyCoffeeApp.Shared.csproj", "{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCoffeeApp.Shared", "MyCoffeeApp.Shared\MyCoffeeApp.Shared.csproj", "{AFDFC5AB-C2C2-4F45-8F51-711E3EE9E0A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0B723FEF-108B-425A-9D62-D74850B61471}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
