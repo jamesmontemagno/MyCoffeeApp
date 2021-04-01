@@ -16,7 +16,7 @@ namespace MyCoffeeApp.ViewModels
         public AsyncCommand RefreshCommand { get; }
 
         public AsyncCommand<Coffee> FavoriteCommand { get; }
-        public AsyncCommand<Coffee> SelectedCommand { get; }
+        public AsyncCommand<object> SelectedCommand { get; }
 
         public Command LoadMoreCommand { get; }
         public Command DelayLoadMoreCommand { get; }
@@ -35,7 +35,7 @@ namespace MyCoffeeApp.ViewModels
             
             RefreshCommand = new AsyncCommand(Refresh);
             FavoriteCommand = new AsyncCommand<Coffee>(Favorite);
-            SelectedCommand = new AsyncCommand<Coffee>(Selected);
+            SelectedCommand = new AsyncCommand<object>(Selected);
             LoadMoreCommand = new Command(LoadMore);
             ClearCommand = new Command(Clear);
             DelayLoadMoreCommand = new Command(DelayLoadMore);
@@ -58,9 +58,9 @@ namespace MyCoffeeApp.ViewModels
             set => SetProperty(ref selectedCoffee, value);
         }
 
-        async Task Selected(Coffee coffee)
+        async Task Selected(object args)
         {
-            //var coffee = args as Coffee;
+            var coffee = args as Coffee;
             if (coffee == null)
                 return;
 
