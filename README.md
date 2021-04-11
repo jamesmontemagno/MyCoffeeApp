@@ -16,4 +16,4 @@ My reference sample app that I have been building out in my Xamarin 101 video se
 * [Turn any Event into a Command in Xamarin.Forms (MVVM All The Things)](https://youtu.be/7mpe_1okwxk) | branch - event-to-command
 * [Adding a Database to Xamarin Apps](https://youtu.be/XFP8Np-uRWc)
 * [HTTP Web Requests with Data Caching](https://youtu.be/a37qBMt0V9w) | branch - http-web-requests
-* Navigation - coming soon | branch - navigation
+* [Navigation with Xamarin.Forms Shell](https://www.youtube.com/watch?v=8iYpLMKE_ws) | branch - navigation
