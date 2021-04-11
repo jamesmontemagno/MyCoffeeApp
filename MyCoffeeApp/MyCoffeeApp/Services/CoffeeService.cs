@@ -54,5 +54,15 @@ namespace MyCoffeeApp.Services
             var coffee = await db.Table<Coffee>().ToListAsync();
             return coffee;
         }
+
+        public static async Task<Coffee> GetCoffee(int id)
+        {
+            await Init();
+
+            var coffee = await db.Table<Coffee>()
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            return coffee;
+        }
     }
 }
