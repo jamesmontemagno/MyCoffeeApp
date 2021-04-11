@@ -101,7 +101,7 @@
 
 
     <FlyoutItem Title="Internet Coffee" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:InternetCoffeePage}" Route="MyStoredCoffeePage" />
+        <ShellContent ContentTemplate="{DataTemplate local:InternetCoffeePage}" Route="InternetCoffeePage" />
     </FlyoutItem>
 
 </Shell>
