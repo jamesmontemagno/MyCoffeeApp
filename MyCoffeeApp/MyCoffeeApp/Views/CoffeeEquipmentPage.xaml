@@ -20,6 +20,10 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+
     
     <ListView
         BackgroundColor="Transparent"
