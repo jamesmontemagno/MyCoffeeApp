@@ -9,7 +9,7 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="MyCoffeePage"
     x:DataType="viewmodels:MyCoffeeViewModel"
-    BackgroundColor="White">
+    BackgroundColor="{StaticResource WindowBackgroundColor}">
     <ContentPage.BindingContext>
         <viewmodels:MyCoffeeViewModel />
     </ContentPage.BindingContext>
@@ -26,13 +26,12 @@
 
 
     <ListView
-        CachingStrategy="RecycleElement"
-        IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding Coffee}"
         RefreshCommand="{Binding RefreshCommand}"
         SelectionMode="Single"
-        Style="{StaticResource CoffeeListView}">
+        Style="{StaticResource CoffeeListView}"
+        CachingStrategy="RecycleElement">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
                 EventName="ItemSelected"
@@ -55,15 +54,15 @@
                                 <Image Source="{Binding Image}" WidthRequest="66" />
                                 <StackLayout VerticalOptions="Center">
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Name}"
                                         VerticalOptions="Center" />
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Roaster}"
                                         VerticalOptions="Center" />
                                     <Label
-                                        FontSize="Small"
+                                        Style="{StaticResource LabelSmall}"
                                         Text="{Binding Id}"
                                         VerticalOptions="Center" />
                                 </StackLayout>

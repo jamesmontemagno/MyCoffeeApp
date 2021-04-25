@@ -9,7 +9,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="RefreshColor">Orange</Color>
+            <Color x:Key="TextColor">#000000</Color>
 
             <Color x:Key="WindowBackgroundColor">#f2f2f7</Color>
 
@@ -54,26 +54,45 @@
                         Value="None"/>
                 <Setter Property="RefreshControlColor"
                         Value="{StaticResource SystemBlue}"/>
+                <Setter Property="IsPullToRefreshEnabled"
+                        Value="True"/>
             </Style>
 
+            <Style x:Key="BaseRefreshView" TargetType="RefreshView">
+                <Setter Property="RefreshColor"
+                        Value="{StaticResource SystemBlue}"/>
+            </Style>
 
-            <Style x:Key="AButton" TargetType="Button">
-                <Setter Property="TextColor" Value="Black" />
+            <Style x:Key="BaseLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            </Style>
+
+            <Style x:Key="LabelMicro" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Micro"/>
+            </Style>
+            <Style x:Key="LabelSmall" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Small"/>
+            </Style>
+
+            <Style x:Key="LabelMedium" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style x:Key="LabelLarge" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
+                <Setter Property="FontSize" Value="Large"/>
+            </Style>
+
+            <Style x:Key="ButtonOutline" TargetType="Button">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
                 <Setter Property="WidthRequest" Value="150" />
                 <Setter Property="HeightRequest" Value="{OnPlatform iOS=30, Android=40}" />
                 <Setter Property="FontSize" Value="Small" />
                 <Setter Property="CornerRadius" Value="6" />
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="BorderColor" Value="Black" />
+                <Setter Property="BorderColor" Value="{DynamicResource TextColor}" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
-
-            <Style x:Key="BButton" TargetType="Button"
-                   BasedOn="{StaticResource AButton}">
-                <Setter Property="TextColor" Value="Orange" />
-            </Style>
-            
                         
             <Style x:Key="CoffeeCard" TargetType="Frame">
                 <Setter Property="HasShadow" 

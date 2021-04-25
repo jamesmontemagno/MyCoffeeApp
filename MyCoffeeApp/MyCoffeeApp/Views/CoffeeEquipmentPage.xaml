@@ -20,22 +20,21 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    
+
     <ListView
-        CachingStrategy="RecycleElement"
         GroupDisplayBinding="{Binding Key}"
         IsGroupingEnabled="True"
-        IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding CoffeeGroups}"
         RefreshCommand="{Binding RefreshCommand}"
         SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
-        Style="{StaticResource CoffeeListView}">
+        Style="{StaticResource CoffeeListView}"
+        CachingStrategy="RecycleElement">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
-                EventName="ItemSelected"
-                Command="{Binding SelectedCommand}"                
-                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+                Command="{Binding SelectedCommand}"
+                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"
+                EventName="ItemSelected" />
         </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
@@ -53,11 +52,11 @@
                                 <Image Source="{Binding Image}" WidthRequest="66" />
                                 <StackLayout VerticalOptions="Center">
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Name}"
                                         VerticalOptions="Center" />
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Roaster}"
                                         VerticalOptions="Center" />
                                 </StackLayout>
@@ -69,14 +68,18 @@
         </ListView.ItemTemplate>
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
-                <Label HorizontalOptions="Center" Text="Coffee of the World" />
+                <Label
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LabelMedium}"
+                    Text="Coffee of the World" />
             </StackLayout>
         </ListView.Header>
         <ListView.Footer>
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                <Button Command="{Binding LoadMoreCommand}" 
-                        Text="Load More"
-                        Style="{StaticResource BButton}"/>
+                <Button
+                    Command="{Binding LoadMoreCommand}"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Load More" />
             </StackLayout>
         </ListView.Footer>
     </ListView>

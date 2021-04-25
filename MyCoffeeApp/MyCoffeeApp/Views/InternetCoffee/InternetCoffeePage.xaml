@@ -9,7 +9,7 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="CoffeePage"
     x:DataType="viewmodels:InternetCoffeeViewModel"
-    BackgroundColor="White">
+    BackgroundColor="{StaticResource WindowBackgroundColor}">
     <ContentPage.BindingContext>
         <viewmodels:InternetCoffeeViewModel />
     </ContentPage.BindingContext>
@@ -26,16 +26,12 @@
 
 
     <ListView
-        BackgroundColor="Transparent"
-        CachingStrategy="RecycleElement"
-        HasUnevenRows="True"
-        IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding Coffee}"
         RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red"
         SelectionMode="None"
-        SeparatorVisibility="None">
+        Style="{StaticResource CoffeeListView}"
+        CachingStrategy="RecycleElement">
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
                 <ViewCell>

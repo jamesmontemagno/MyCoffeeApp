@@ -3,19 +3,19 @@
     x:Class="MyCoffeeApp.Views.CoffeeEquipmentCVPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
-    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     x:Name="CoffeePage"
-    BackgroundColor="White">
+    BackgroundColor="{StaticResource WindowBackgroundColor}">
     <ContentPage.BindingContext>
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
     <RefreshView
         Command="{Binding RefreshCommand}"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-        RefreshColor="Red">
+        Style="{StaticResource BaseRefreshView}">
 
         <CollectionView
             BackgroundColor="Transparent"
@@ -23,9 +23,9 @@
             ItemSizingStrategy="MeasureAllItems"
             ItemsLayout="VerticalList"
             ItemsSource="{Binding CoffeeGroups}"
-            SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
             RemainingItemsThreshold="1"
             RemainingItemsThresholdReachedCommand="{Binding DelayLoadMoreCommand}"
+            SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
             SelectionMode="Single">
             <CollectionView.EmptyView>
                 <StackLayout Padding="12">
@@ -35,7 +35,7 @@
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>
                     <StackLayout Padding="12">
-                        <Label Text="{Binding Key}" />
+                        <Label Style="{StaticResource LabelMedium}" Text="{Binding Key}" />
                     </StackLayout>
                 </DataTemplate>
             </CollectionView.GroupHeaderTemplate>
@@ -45,25 +45,27 @@
                         <SwipeView.RightItems>
                             <SwipeItems>
                                 <SwipeItem
+                                    BackgroundColor="Orange"
                                     Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:CoffeeEquipmentViewModel}}, Path=FavoriteCommand}"
                                     CommandParameter="{Binding .}"
-                                    BackgroundColor="Orange"
                                     Text="Favorite" />
-                                <SwipeItem IsDestructive="True" Text="Delete"
-                                           BackgroundColor="Red"/>
+                                <SwipeItem
+                                    BackgroundColor="Red"
+                                    IsDestructive="True"
+                                    Text="Delete" />
                             </SwipeItems>
                         </SwipeView.RightItems>
                         <Grid Padding="10">
-                            <Frame CornerRadius="20" HasShadow="True">
+                            <Frame Style="{StaticResource CoffeeCard}">
                                 <StackLayout Orientation="Horizontal">
                                     <Image Source="{Binding Image}" WidthRequest="66" />
                                     <StackLayout VerticalOptions="Center">
                                         <Label
-                                            FontSize="Large"
+                                            Style="{StaticResource LabelLarge}"
                                             Text="{Binding Name}"
                                             VerticalOptions="Center" />
                                         <Label
-                                            FontSize="Large"
+                                            Style="{StaticResource LabelLarge}"
                                             Text="{Binding Roaster}"
                                             VerticalOptions="Center" />
                                     </StackLayout>
@@ -72,16 +74,25 @@
                         </Grid>
                     </SwipeView>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>            
+            </CollectionView.ItemTemplate>
             <CollectionView.Header>
                 <StackLayout Orientation="Horizontal">
-                    <Label HorizontalOptions="Center" Text="Coffee of the World" />
+                    <Label
+                        HorizontalOptions="Center"
+                        Style="{StaticResource LabelMedium}"
+                        Text="Coffee of the World" />
                 </StackLayout>
             </CollectionView.Header>
             <CollectionView.Footer>
                 <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                    <Button Command="{Binding LoadMoreCommand}" Text="Load More" />
-                    <Button Command="{Binding ClearCommand}" Text="Clear" />
+                    <Button
+                        Command="{Binding LoadMoreCommand}"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Load More" />
+                    <Button
+                        Command="{Binding ClearCommand}"
+                        Style="{StaticResource ButtonOutline}"
+                        Text="Clear" />
                 </StackLayout>
             </CollectionView.Footer>
         </CollectionView>
