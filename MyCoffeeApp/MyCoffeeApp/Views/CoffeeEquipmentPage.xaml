@@ -9,7 +9,7 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
-    BackgroundColor="White">
+    BackgroundColor="{StaticResource WindowBackgroundColor}">
     <ContentPage.BindingContext>
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
@@ -22,18 +22,15 @@
 
     
     <ListView
-        BackgroundColor="Transparent"
         CachingStrategy="RecycleElement"
         GroupDisplayBinding="{Binding Key}"
-        HasUnevenRows="True"
         IsGroupingEnabled="True"
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding CoffeeGroups}"
         RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red"
         SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
-        SeparatorVisibility="None">
+        Style="{StaticResource CoffeeListView}">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
                 EventName="ItemSelected"
@@ -51,7 +48,7 @@
                         <MenuItem IsDestructive="True" Text="Delete" />
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
-                        <Frame CornerRadius="20" HasShadow="True">
+                        <Frame Style="{StaticResource CoffeeCard}">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Image}" WidthRequest="66" />
                                 <StackLayout VerticalOptions="Center">
@@ -77,7 +74,9 @@
         </ListView.Header>
         <ListView.Footer>
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                <Button Command="{Binding LoadMoreCommand}" Text="Load More" />
+                <Button Command="{Binding LoadMoreCommand}" 
+                        Text="Load More"
+                        Style="{StaticResource BButton}"/>
             </StackLayout>
         </ListView.Footer>
     </ListView>

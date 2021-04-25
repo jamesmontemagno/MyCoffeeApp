@@ -9,6 +9,77 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
+            <Color x:Key="RefreshColor">Orange</Color>
+
+            <Color x:Key="WindowBackgroundColor">#f2f2f7</Color>
+
+            <Color x:Key="SystemBlue">#007AFF</Color>
+            <Color x:Key="SystemGreen">#34C759</Color>
+            <Color x:Key="SystemIndigo">#5856D6</Color>
+            <Color x:Key="SystemOrange">#FF9500</Color>
+            <Color x:Key="SystemPink">#FF2D55</Color>
+            <Color x:Key="SystemPurple">#AF52DE</Color>
+            <Color x:Key="SystemRed">#FF3B30</Color>
+            <Color x:Key="SystemTeal">#5AC8FA</Color>
+            <Color x:Key="SystemYellow">#FFCC00</Color>
+
+            <Color x:Key="SystemGray">#8E8E93</Color>
+            <Color x:Key="SystemGray2">#AEAEB2</Color>
+            <Color x:Key="SystemGray3">#C7C7CC</Color>
+            <Color x:Key="SystemGray4">#D1D1D6</Color>
+            <Color x:Key="SystemGray5">#E5E5EA</Color>
+            <Color x:Key="SystemGray6">#F2F2F7</Color>
+
+            <Color x:Key="SystemBlueDark">#0A84FF</Color>
+            <Color x:Key="SystemGreenDark">#30D158</Color>
+            <Color x:Key="SystemIndigoDark">#5E5CE6</Color>
+            <Color x:Key="SystemOrangeDark">#FF9F0A</Color>
+            <Color x:Key="SystemPinkDark">#FF375F</Color>
+            <Color x:Key="SystemPurpleDark">#BF5AF2</Color>
+            <Color x:Key="SystemRedDark">#FF453A</Color>
+            <Color x:Key="SystemTealDark">#64D2FF</Color>
+            <Color x:Key="SystemYellowDark">#FFD60A</Color>
+
+            <Color x:Key="SystemGrayDark">#8E8E93</Color>
+            <Color x:Key="SystemGray2Dark">#636366</Color>
+            <Color x:Key="SystemGray3Dark">#484848</Color>
+            <Color x:Key="SystemGray4Dark">#3A3A3C</Color>
+            <Color x:Key="SystemGray5Dark">#2C2C2E</Color>
+            <Color x:Key="SystemGray6Dark">#1C1C1E</Color>
+
+            <Style x:Key="CoffeeListView" TargetType="ListView">
+                <Setter Property="HasUnevenRows" Value="True"/>
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="SeparatorVisibility"
+                        Value="None"/>
+                <Setter Property="RefreshControlColor"
+                        Value="{StaticResource SystemBlue}"/>
+            </Style>
+
+
+            <Style x:Key="AButton" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="HeightRequest" Value="{OnPlatform iOS=30, Android=40}" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="CornerRadius" Value="6" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="BorderColor" Value="Black" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+
+            <Style x:Key="BButton" TargetType="Button"
+                   BasedOn="{StaticResource AButton}">
+                <Setter Property="TextColor" Value="Orange" />
+            </Style>
+            
+                        
+            <Style x:Key="CoffeeCard" TargetType="Frame">
+                <Setter Property="HasShadow" 
+                        Value="{OnPlatform Android=true, iOS=false, Default=true}"/>
+                <Setter Property="CornerRadius" Value="20"/>
+            </Style>
 
         </ResourceDictionary>
     </Application.Resources>

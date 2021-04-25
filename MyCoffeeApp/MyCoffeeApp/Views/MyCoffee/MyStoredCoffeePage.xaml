@@ -26,16 +26,13 @@
 
 
     <ListView
-        BackgroundColor="Transparent"
         CachingStrategy="RecycleElement"
-        HasUnevenRows="True"
         IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding Coffee}"
         RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red"
         SelectionMode="Single"
-        SeparatorVisibility="None">
+        Style="{StaticResource CoffeeListView}">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
                 EventName="ItemSelected"
@@ -53,7 +50,7 @@
                             Text="Delete" />
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
-                        <Frame CornerRadius="20" HasShadow="True">
+                        <Frame  Style="{StaticResource CoffeeCard}">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Image}" WidthRequest="66" />
                                 <StackLayout VerticalOptions="Center">
