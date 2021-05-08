@@ -93,7 +93,11 @@
     </ShellItem>
 
 
-    <FlyoutItem Title="Equipment" Icon="icon_about.png">
+    <FlyoutItem Title="Equipment">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FAS"
+                             Glyph="{StaticResource IconCoffee}"/>
+        </FlyoutItem.Icon>
         <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage" />
     </FlyoutItem>
 
