@@ -7,6 +7,7 @@
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
     BackgroundColor="White">
@@ -76,7 +77,11 @@
         </ListView.ItemTemplate>
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
-                <Label HorizontalOptions="Center" Text="Coffee of the World" />
+                <Label HorizontalOptions="Center" 
+                       Text="{x:Static fontAwesome:FontAwesomeIcons.Coffee}"
+                       FontSize="Large"
+                       FontFamily="FAS"
+                       Margin="20"/>
             </StackLayout>
         </ListView.Header>
         <ListView.Footer>

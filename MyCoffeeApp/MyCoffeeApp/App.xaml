@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
 
+            <x:String x:Key="IconCoffee">&#xf0f4;</x:String>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
