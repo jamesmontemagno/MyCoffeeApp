@@ -81,17 +81,28 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+ 
     <!--
         When the Flyout is visible this defines the content to display in the flyout.
         FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
-    <FlyoutItem Title="Equipment" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="EquipmentPage" />
+
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
+    </ShellItem>
+
+
+    <FlyoutItem Title="Equipment">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FAS"
+                             Glyph="{StaticResource IconCoffee}"/>
+        </FlyoutItem.Icon>
+        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage" />
     </FlyoutItem>
 
     <FlyoutItem Title="Equipment - CV" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentCVPage}" Route="EquipmentPageCV" />
+        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentCVPage}" Route="CoffeeEquipmentCVPage" />
     </FlyoutItem>
 
 
@@ -101,7 +112,6 @@
 
 
     <FlyoutItem Title="Internet Coffee" Icon="icon_about.png">
-        <ShellContent ContentTemplate="{DataTemplate local:InternetCoffeePage}" Route="MyStoredCoffeePage" />
+        <ShellContent ContentTemplate="{DataTemplate local:InternetCoffeePage}" Route="InternetCoffeePage" />
     </FlyoutItem>
-
 </Shell>

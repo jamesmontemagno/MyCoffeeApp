@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyCoffeeApp.Views.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center"
+                     HorizontalOptions="FillAndExpand">
+            <Label Text="Username:"/>
+            <Entry Placeholder="Username"/>
+            <Label Text="Password:"/>
+            <Entry IsPassword="True" Placeholder="Password"/>
+            <Button Text="Login" Clicked="Button_Clicked"/>
+            <Label Text="Register" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
