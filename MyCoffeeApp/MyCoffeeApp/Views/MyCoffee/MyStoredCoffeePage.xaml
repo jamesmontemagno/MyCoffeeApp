@@ -9,7 +9,7 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="MyCoffeePage"
     x:DataType="viewmodels:MyCoffeeViewModel"
-    BackgroundColor="White">
+    BackgroundColor="{StaticResource WindowBackgroundColor}">
     <ContentPage.BindingContext>
         <viewmodels:MyCoffeeViewModel />
     </ContentPage.BindingContext>
@@ -26,16 +26,12 @@
 
 
     <ListView
-        BackgroundColor="Transparent"
-        CachingStrategy="RecycleElement"
-        HasUnevenRows="True"
-        IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding Coffee}"
         RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red"
         SelectionMode="Single"
-        SeparatorVisibility="None">
+        Style="{StaticResource CoffeeListView}"
+        CachingStrategy="RecycleElement">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
                 EventName="ItemSelected"
@@ -53,20 +49,20 @@
                             Text="Delete" />
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
-                        <Frame CornerRadius="20" HasShadow="True">
+                        <Frame  Style="{StaticResource CoffeeCard}">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Image}" WidthRequest="66" />
                                 <StackLayout VerticalOptions="Center">
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Name}"
                                         VerticalOptions="Center" />
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Roaster}"
                                         VerticalOptions="Center" />
                                     <Label
-                                        FontSize="Small"
+                                        Style="{StaticResource LabelSmall}"
                                         Text="{Binding Id}"
                                         VerticalOptions="Center" />
                                 </StackLayout>

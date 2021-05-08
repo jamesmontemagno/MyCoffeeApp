@@ -1,31 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodel="clr-namespace:MyCoffeeApp.ViewModels"
-             x:Class="MyCoffeeApp.Views.AddMyCoffeePage"
-             x:DataType="viewmodel:AddMyCoffeeViewModel"
-             Shell.PresentationMode="Modal"
-             Title="{Binding Title}">
+<ContentPage
+    x:Class="MyCoffeeApp.Views.AddMyCoffeePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:MyCoffeeApp.ViewModels"
+    Title="{Binding Title}"
+    x:DataType="viewmodel:AddMyCoffeeViewModel"
+    BackgroundColor="{StaticResource WindowBackgroundColor}"
+    Shell.PresentationMode="Modal">
     <ContentPage.BindingContext>
-        <viewmodel:AddMyCoffeeViewModel/>
+        <viewmodel:AddMyCoffeeViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="20">
-            <Label Text="Name:" />
-            <Entry Text="{Binding Name}"/>
-            <Label Text="Roaster:" />
-            <Entry Text="{Binding Roaster}"/>
+            <Label Text="Name:"
+                   Style="{StaticResource LabelMedium}"/>
+            <Entry Text="{Binding Name}" />
+            <Label Text="Roaster:"
+                   Style="{StaticResource LabelMedium}" />
+            <Entry Text="{Binding Roaster}" />
 
-            <ActivityIndicator IsVisible="{Binding IsBusy}"
-                               IsRunning="{Binding IsBusy}"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center"/>
+            <ActivityIndicator
+                HorizontalOptions="Center"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center" />
 
-            <Button Text="Save" 
-                    Padding="20,0"
-                    HorizontalOptions="Center"
-                    VerticalOptions="EndAndExpand"
-                    IsEnabled="{Binding IsNotBusy}"
-                    Command="{Binding SaveCommand}"/>
+            <Button
+                Padding="20,0"
+                Command="{Binding SaveCommand}"
+                HorizontalOptions="Center"
+                IsEnabled="{Binding IsNotBusy}"
+                Text="Save"
+                VerticalOptions="EndAndExpand"
+                Style="{StaticResource ButtonOutline}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

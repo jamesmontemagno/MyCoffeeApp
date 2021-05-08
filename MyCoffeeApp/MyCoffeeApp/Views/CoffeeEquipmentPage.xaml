@@ -10,7 +10,7 @@
     xmlns:fontAwesome="clr-namespace:FontAwesome"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
-    BackgroundColor="White">
+    BackgroundColor="{StaticResource WindowBackgroundColor}">
     <ContentPage.BindingContext>
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
@@ -25,25 +25,20 @@
         <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked"/>
     </ContentPage.ToolbarItems>
 
-    
     <ListView
-        BackgroundColor="Transparent"
-        CachingStrategy="RecycleElement"
         GroupDisplayBinding="{Binding Key}"
-        HasUnevenRows="True"
         IsGroupingEnabled="True"
-        IsPullToRefreshEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding CoffeeGroups}"
         RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red"
         SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
-        SeparatorVisibility="None">
+        Style="{StaticResource CoffeeListView}"
+        CachingStrategy="RecycleElement">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
-                EventName="ItemSelected"
-                Command="{Binding SelectedCommand}"                
-                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+                Command="{Binding SelectedCommand}"
+                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"
+                EventName="ItemSelected" />
         </ListView.Behaviors>
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:Coffee">
@@ -56,16 +51,16 @@
                         <MenuItem IsDestructive="True" Text="Delete" />
                     </ViewCell.ContextActions>
                     <Grid Padding="10">
-                        <Frame CornerRadius="20" HasShadow="True">
+                        <Frame Style="{StaticResource CoffeeCard}">
                             <StackLayout Orientation="Horizontal">
                                 <Image Source="{Binding Image}" WidthRequest="66" />
                                 <StackLayout VerticalOptions="Center">
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Name}"
                                         VerticalOptions="Center" />
                                     <Label
-                                        FontSize="Large"
+                                        Style="{StaticResource LabelLarge}"
                                         Text="{Binding Roaster}"
                                         VerticalOptions="Center" />
                                 </StackLayout>
@@ -78,15 +73,18 @@
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
                 <Label HorizontalOptions="Center" 
-                       Text="{x:Static fontAwesome:FontAwesomeIcons.Coffee}"
+                       Text="Coffees of the World"
                        FontSize="Large"
-                       FontFamily="FAS"
+                       FontFamily="AC"
                        Margin="20"/>
             </StackLayout>
         </ListView.Header>
         <ListView.Footer>
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                <Button Command="{Binding LoadMoreCommand}" Text="Load More" />
+                <Button
+                    Command="{Binding LoadMoreCommand}"
+                    Style="{StaticResource ButtonOutline}"
+                    Text="Load More" />
             </StackLayout>
         </ListView.Footer>
     </ListView>
