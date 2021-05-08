@@ -3,14 +3,16 @@
     x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
-    xmlns:fontAwesome="clr-namespace:FontAwesome"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
-    BackgroundColor="{StaticResource WindowBackgroundColor}">
+    BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
     <ContentPage.BindingContext>
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
@@ -22,18 +24,18 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Logout" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Clicked="ToolbarItem_Clicked" Text="Logout" />
     </ContentPage.ToolbarItems>
 
     <ListView
+        CachingStrategy="RecycleElement"
         GroupDisplayBinding="{Binding Key}"
         IsGroupingEnabled="True"
         IsRefreshing="{Binding IsBusy, Mode=OneWay}"
         ItemsSource="{Binding CoffeeGroups}"
         RefreshCommand="{Binding RefreshCommand}"
         SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
-        Style="{StaticResource CoffeeListView}"
-        CachingStrategy="RecycleElement">
+        Style="{StaticResource CoffeeListView}">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
                 Command="{Binding SelectedCommand}"
@@ -70,13 +72,27 @@
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate x:DataType="{x:Null}">
+                <ViewCell>
+                    <StackLayout Padding="20,0">
+                        <Label Style="{StaticResource LabelMedium}" Text="{Binding Key}" />
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
         <ListView.Header>
             <StackLayout Orientation="Horizontal">
-                <Label HorizontalOptions="Center" 
-                       Text="Coffees of the World"
-                       FontSize="Large"
-                       FontFamily="AC"
-                       Margin="20"/>
+                <Label
+                    Margin="20"
+                    FontFamily="AC"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource LabelLarge}"
+                    Text="Coffees of the World">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
             </StackLayout>
         </ListView.Header>
         <ListView.Footer>

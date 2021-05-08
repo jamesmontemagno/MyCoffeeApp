@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyCoffeeApp.Views.SettingsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:fontAwesome="clr-namespace:FontAwesome"
+    Title="Settings"
+    BackgroundColor="{AppThemeBinding 
+                        Dark={StaticResource WindowBackgroundColorDark}, 
+                        Light={StaticResource WindowBackgroundColor}}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="LightRadioButtonColor">#F3F2F1</Color>
+            <Color x:Key="DarkRadioButtonColor">#9B9A99</Color>
+
+            <ControlTemplate x:Key="ThemeRadioTemplate">
+                <Frame
+                    Padding="0"
+                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkRadioButtonColor},
+                                                      Light={StaticResource LightRadioButtonColor}}"
+                    BorderColor="{AppThemeBinding Dark={StaticResource DarkRadioButtonColor},
+                                                  Light={StaticResource LightRadioButtonColor}}"
+                    CornerRadius="8"
+                    HasShadow="{OnPlatform iOS=false,
+                                           Android=true}"
+                    HeightRequest="80"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    WidthRequest="80">
+                    <Grid Margin="4" WidthRequest="80">
+                        <Grid
+                            HeightRequest="20"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"
+                            WidthRequest="20">
+                            <Ellipse
+                                x:Name="FillUncheck"
+                                Fill="White"
+                                HeightRequest="18"
+                                HorizontalOptions="Center"
+                                Stroke="#2E2545"
+                                StrokeThickness="2"
+                                VerticalOptions="Center"
+                                WidthRequest="18" />
+                            <Ellipse
+                                x:Name="FillCheck"
+                                Fill="White"
+                                HeightRequest="18"
+                                HorizontalOptions="Center"
+                                Stroke="#df6e57"
+                                StrokeThickness="2"
+                                VerticalOptions="Center"
+                                WidthRequest="18" />
+                            <Ellipse
+                                x:Name="Check"
+                                BackgroundColor="Transparent"
+                                Fill="#df6e57"
+                                HeightRequest="10"
+                                HorizontalOptions="Center"
+                                Stroke="#df6e57"
+                                StrokeThickness="0"
+                                VerticalOptions="Center"
+                                WidthRequest="10" />
+                        </Grid>
+                        <ContentPresenter />
+                    </Grid>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroupList>
+                            <VisualStateGroup x:Name="CheckedStates">
+                                <VisualState x:Name="Checked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BorderColor" Value="#df6e57" />
+                                        <Setter TargetName="Check" Property="Opacity" Value="1" />
+                                        <Setter TargetName="FillCheck" Property="Opacity" Value="1" />
+                                        <Setter TargetName="FillUncheck" Property="Opacity" Value="0" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <VisualState.Setters>
+                                        <Setter Property="BorderColor" Value="#F3F2F1" />
+                                        <Setter TargetName="Check" Property="Opacity" Value="0" />
+                                        <Setter TargetName="FillCheck" Property="Opacity" Value="0" />
+                                        <Setter TargetName="FillUncheck" Property="Opacity" Value="1" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateGroupList>
+                    </VisualStateManager.VisualStateGroups>
+                </Frame>
+            </ControlTemplate>
+
+            <Style TargetType="RadioButton">
+                <Setter Property="ControlTemplate" Value="{StaticResource ThemeRadioTemplate}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid Padding="12" ColumnDefinitions=".05*,.9*,.05*">
+            <StackLayout Grid.Column="1">
+                <Label
+                    Margin="0,12,0,0"
+                    Style="{DynamicResource LabelMedium}"
+                    Text="THEME" />
+                <Frame Style="{DynamicResource CoffeeCard}">
+                    <Grid
+                        ColumnDefinitions="*,Auto,Auto,Auto,*"
+                        ColumnSpacing="10"
+                        RadioButtonGroup.GroupName="ThemeGroup"
+                        RowDefinitions="Auto,Auto"
+                        RowSpacing="10">
+                        <RadioButton
+                            x:Name="RadioButtonSystem"
+                            Grid.Column="1"
+                            CheckedChanged="RadioButton_CheckedChanged"
+                            Value="System">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Scale="0.75" Source="{FontImage FontFamily=FAS, Glyph={x:Static fontAwesome:FontAwesomeIcons.UserCog}, Color=#323130}" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="System"
+                                        TextColor="#323130" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton
+                            x:Name="RadioButtonLight"
+                            Grid.Column="2"
+                            CheckedChanged="RadioButton_CheckedChanged"
+                            Value="Light">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Scale="0.75" Source="{FontImage FontFamily=FAS, Glyph={x:Static fontAwesome:FontAwesomeIcons.Sun}, Color=#323130}" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="Light"
+                                        TextColor="#323130" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                        <RadioButton
+                            x:Name="RadioButtonDark"
+                            Grid.Column="3"
+                            CheckedChanged="RadioButton_CheckedChanged"
+                            Value="Dark">
+                            <RadioButton.Content>
+                                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                                    <Image Scale="0.75" Source="{FontImage FontFamily=FAS, Glyph={x:Static fontAwesome:FontAwesomeIcons.Moon}, Color=#323130}" />
+                                    <Label
+                                        FontSize="Small"
+                                        Text="Dark"
+                                        TextColor="#323130" />
+                                </StackLayout>
+                            </RadioButton.Content>
+                        </RadioButton>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>
