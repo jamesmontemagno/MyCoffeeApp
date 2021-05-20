@@ -18,3 +18,7 @@ My reference sample app that I have been building out in my Xamarin 101 video se
 * [HTTP Web Requests with Data Caching](https://youtu.be/a37qBMt0V9w) | branch - http-web-requests
 * [Navigation with Xamarin.Forms Shell](https://www.youtube.com/watch?v=8iYpLMKE_ws) | branch - navigation
 * [Login Flow](https://www.youtube.com/watch?v=ylbgWHB_gMI) | branch - login-flow
+* [App Icons](https://youtu.be/XEAyAf3_MpU) | branch - app-icons
+* [Reusable Styles](https://youtu.be/Se0yF5JXk70) | branch - styles
+* [Custom Fonts & Font Icons](https://youtu.be/jZARFd8Gno0) | branch - custom-fonts
+* [App Themes](https://youtu.be/4w8TQ8njd3w) | branch - app-themes
