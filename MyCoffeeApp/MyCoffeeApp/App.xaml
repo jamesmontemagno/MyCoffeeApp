@@ -10,9 +10,14 @@
         <ResourceDictionary>
             <Color x:Key="Primary">#2196F3</Color>
             <Color x:Key="TextColor">#000000</Color>
+            <Color x:Key="TextColorDark">White</Color>
 
             <Color x:Key="WindowBackgroundColor">#f2f2f7</Color>
+            <Color x:Key="WindowBackgroundColorDark">Black</Color>
 
+            <Color x:Key="CardBackground">White</Color>
+            <Color x:Key="CardBackgroundDark">#1C1C1E</Color>
+            
             <Color x:Key="SystemBlue">#007AFF</Color>
             <Color x:Key="SystemGreen">#34C759</Color>
             <Color x:Key="SystemIndigo">#5856D6</Color>
@@ -64,7 +69,9 @@
             </Style>
 
             <Style x:Key="BaseLabel" TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="TextColor" 
+                        Value="{AppThemeBinding Dark={StaticResource TextColorDark},
+                    Light={StaticResource TextColor}}" />
             </Style>
 
             <Style x:Key="LabelMicro" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
@@ -83,14 +90,16 @@
             </Style>
 
             <Style x:Key="ButtonOutline" TargetType="Button">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark},
+                    Light={StaticResource TextColor}}" />
                 <Setter Property="WidthRequest" Value="150" />
                 <Setter Property="HeightRequest" Value="{OnPlatform iOS=30, Android=40}" />
                 <Setter Property="FontSize" Value="Small" />
                 <Setter Property="CornerRadius" Value="6" />
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="BorderColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark},
+                    Light={StaticResource TextColor}}" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
                         
@@ -98,6 +107,9 @@
                 <Setter Property="HasShadow" 
                         Value="{OnPlatform Android=true, iOS=false, Default=true}"/>
                 <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor"
+                        Value="{AppThemeBinding Dark={StaticResource CardBackgroundDark},
+                    Light={StaticResource CardBackground}}"/>
             </Style>
 
             <x:String x:Key="IconCoffee">&#xf0f4;</x:String>

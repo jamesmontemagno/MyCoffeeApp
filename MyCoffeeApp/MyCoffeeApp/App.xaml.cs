@@ -1,4 +1,5 @@
 ﻿using MonkeyCache.FileStore;
+using MyCoffeeApp.Helpers;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -11,6 +12,8 @@ namespace MyCoffeeApp
         {
             InitializeComponent();
 
+            TheTheme.SetTheme();
+
             Barrel.ApplicationId = AppInfo.PackageName;
 
             MainPage = new AppShell();
@@ -18,14 +21,27 @@ namespace MyCoffeeApp
 
         protected override void OnStart()
         {
+            OnResume();
         }
 
         protected override void OnSleep()
         {
+            TheTheme.SetTheme();
+            RequestedThemeChanged -= App_RequestedThemeChanged;
         }
 
         protected override void OnResume()
         {
+            TheTheme.SetTheme();
+            RequestedThemeChanged += App_RequestedThemeChanged;
+        }
+
+        private void App_RequestedThemeChanged(object sender, AppThemeChangedEventArgs e)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                TheTheme.SetTheme();
+            });
         }
     }
 }

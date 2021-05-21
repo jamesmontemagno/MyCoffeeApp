@@ -22,7 +22,7 @@ namespace MyCoffeeApp.Views
             base.OnAppearing();
             //var loggedin = true;
             //if(loggedin)
-            //    await Shell.Current.GoToAsync($"//{nameof(CoffeeEquipmentPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(CoffeeEquipmentPage)}");
 
         }
 
