@@ -17,11 +17,12 @@ namespace MyCoffeeApp.ViewModels
         public string Roaster { get => roaster; set => SetProperty(ref roaster, value); }
 
         public AsyncCommand SaveCommand { get; }
-
+        ICoffeeService coffeeService;
         public AddMyCoffeeViewModel()
         {
             Title = "Add Coffee";
             SaveCommand = new AsyncCommand(Save);
+            coffeeService = DependencyService.Get<ICoffeeService>();
         }
 
         async Task Save()
@@ -32,7 +33,7 @@ namespace MyCoffeeApp.ViewModels
                 return;
             }
 
-            await CoffeeService.AddCoffee(name, roaster);
+            await coffeeService.AddCoffee(name, roaster);
 
             await Shell.Current.GoToAsync("..");
         }

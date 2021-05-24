@@ -6,6 +6,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using MyCoffeeApp.Services;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using MyCoffeeApp.Droid;
+
+[assembly:Dependency(typeof(Toaster))]
 
 namespace MyCoffeeApp.Droid
 {
@@ -28,6 +34,14 @@ namespace MyCoffeeApp.Droid
             Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
+
+    public class Toaster : IToast
+    {
+        public void MakeToast(string message)
+        {
+            Toast.MakeText(Platform.AppContext, message, ToastLength.Long).Show();
         }
     }
 }

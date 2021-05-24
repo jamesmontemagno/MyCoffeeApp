@@ -1,4 +1,5 @@
-﻿using MyCoffeeApp.Shared.Models;
+﻿using MyCoffeeApp.Services;
+using MyCoffeeApp.Shared.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -6,13 +7,15 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
+using Xamarin.Forms;
 
+[assembly:Dependency(typeof(CoffeeService))]
 namespace MyCoffeeApp.Services
 {
-    public static class CoffeeService
+    public class CoffeeService : ICoffeeService
     {
-        static SQLiteAsyncConnection db;
-        static async Task Init()
+        SQLiteAsyncConnection db;
+        async Task Init()
         {
             if (db != null)
                 return;
@@ -25,7 +28,7 @@ namespace MyCoffeeApp.Services
             await db.CreateTableAsync<Coffee>();
         }
 
-        public static async Task AddCoffee(string name, string roaster)
+        public async Task AddCoffee(string name, string roaster)
         {
             await Init();
             var image = "https://www.yesplz.coffee/app/uploads/2020/11/emptybag-min.png";
@@ -39,7 +42,7 @@ namespace MyCoffeeApp.Services
             var id = await db.InsertAsync(coffee);
         }
 
-        public static async Task RemoveCoffee(int id)
+        public async Task RemoveCoffee(int id)
         {
 
             await Init();
@@ -47,7 +50,7 @@ namespace MyCoffeeApp.Services
             await db.DeleteAsync<Coffee>(id);
         }
 
-        public static async Task<IEnumerable<Coffee>> GetCoffee()
+        public async Task<IEnumerable<Coffee>> GetCoffee()
         {
             await Init();
 
@@ -55,7 +58,7 @@ namespace MyCoffeeApp.Services
             return coffee;
         }
 
-        public static async Task<Coffee> GetCoffee(int id)
+        public async Task<Coffee> GetCoffee(int id)
         {
             await Init();
 
@@ -64,5 +67,6 @@ namespace MyCoffeeApp.Services
 
             return coffee;
         }
+
     }
 }
