@@ -24,6 +24,30 @@ namespace MyCoffeeApp.Helpers
                     App.Current.UserAppTheme = OSAppTheme.Dark;
                     break;
             }
+
+            var nav = App.Current.MainPage as Xamarin.Forms.NavigationPage;
+
+            var e = DependencyService.Get<IEnvironment>();
+            if(App.Current.RequestedTheme == OSAppTheme.Dark)
+            {
+                e?.SetStatusBarColor(Color.Black, false);
+                if(nav != null)
+                {
+                    nav.BarBackgroundColor = Color.Black;
+                    nav.BarTextColor = Color.White;
+                }
+            }
+            else
+            {
+                e?.SetStatusBarColor(Color.White, true);
+                if (nav != null)
+                {
+                    nav.BarBackgroundColor = Color.White;
+                    nav.BarTextColor = Color.Black;
+                }
+            }
+
+
         }
     }
 }
