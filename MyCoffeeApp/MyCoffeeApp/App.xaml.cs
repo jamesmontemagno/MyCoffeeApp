@@ -13,7 +13,7 @@ namespace MyCoffeeApp
         {
             InitializeComponent();
 
-            TheTheme.SetTheme();
+            //TheTheme.SetTheme();
 
             Barrel.ApplicationId = AppInfo.PackageName;
 

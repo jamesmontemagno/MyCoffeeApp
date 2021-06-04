@@ -36,5 +36,7 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>NSCalendarsUsageDescription</key>
 	<string>I need Calendar Permissions</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

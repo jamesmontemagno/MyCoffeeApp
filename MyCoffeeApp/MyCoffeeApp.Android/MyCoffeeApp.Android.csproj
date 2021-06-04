@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -113,7 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyCoffeeApp\MyCoffeeApp.csproj">
-      <Project>{830B791C-E4FF-46DD-B362-EDF7B61E431F}</Project>
+      <Project>{F26C65BA-26F3-4634-8AB4-A5148AF07A74}</Project>
       <Name>MyCoffeeApp</Name>
     </ProjectReference>
   </ItemGroup>

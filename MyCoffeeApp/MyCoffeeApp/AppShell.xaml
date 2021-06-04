@@ -16,9 +16,9 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
-                <Setter Property="Shell.ForegroundColor" Value="White" />
-                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark=Black, Light=White}" />
+                <Setter Property="Shell.ForegroundColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
+                <Setter Property="Shell.TitleColor" Value="{AppThemeBinding Dark=White, Light=Black}" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
