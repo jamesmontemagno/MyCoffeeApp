@@ -33,7 +33,7 @@
                 </StackLayout>
             </CollectionView.EmptyView>
             <CollectionView.GroupHeaderTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="{x:Null}">
                     <StackLayout Padding="12">
                         <Label Style="{StaticResource LabelMedium}" Text="{Binding Key}" />
                     </StackLayout>
