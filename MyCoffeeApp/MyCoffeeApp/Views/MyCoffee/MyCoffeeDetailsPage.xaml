@@ -6,7 +6,9 @@
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     Title="{Binding Name}"
     x:DataType="model:Coffee"
-    BackgroundColor="{StaticResource WindowBackgroundColor}">
+    BackgroundColor="{AppThemeBinding 
+                    Dark={StaticResource WindowBackgroundColorDark}, 
+                    Light={StaticResource WindowBackgroundColor}}">
     <ContentPage.Content>
         <StackLayout Padding="20">
             <Label Text="{Binding Name, StringFormat='Name: {0}'}"

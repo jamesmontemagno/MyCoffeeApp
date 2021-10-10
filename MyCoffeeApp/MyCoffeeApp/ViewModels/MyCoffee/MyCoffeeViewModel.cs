@@ -67,7 +67,9 @@ namespace MyCoffeeApp.ViewModels
         {
             IsBusy = true;
 
-            await Task.Delay(2000);
+#if DEBUG
+            await Task.Delay(500);
+#endif
 
             Coffee.Clear();
 

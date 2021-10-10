@@ -31,7 +31,7 @@ namespace MyCoffeeApp.Services
         public async Task AddCoffee(string name, string roaster)
         {
             await Init();
-            var image = "https://www.yesplz.coffee/app/uploads/2020/11/emptybag-min.png";
+            var image = "coffeebag.png";
             var coffee = new Coffee
             {
                 Name = name,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyCoffeeApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace MyCoffeeApp.Views
         public MyStoredCoffeePage()
         {
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            var vm = (MyCoffeeViewModel)BindingContext;
+            if (vm.Coffee.Count == 0)
+                await vm.RefreshCommand.ExecuteAsync();
         }
     }
 }

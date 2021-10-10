@@ -9,7 +9,9 @@
     xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     x:Name="MyCoffeePage"
     x:DataType="viewmodels:MyCoffeeViewModel"
-    BackgroundColor="{StaticResource WindowBackgroundColor}">
+    BackgroundColor="{AppThemeBinding 
+                    Dark={StaticResource WindowBackgroundColorDark}, 
+                    Light={StaticResource WindowBackgroundColor}}">
     <ContentPage.BindingContext>
         <viewmodels:MyCoffeeViewModel />
     </ContentPage.BindingContext>

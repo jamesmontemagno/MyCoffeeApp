@@ -6,7 +6,9 @@
     xmlns:viewmodel="clr-namespace:MyCoffeeApp.ViewModels"
     Title="{Binding Title}"
     x:DataType="viewmodel:AddMyCoffeeViewModel"
-    BackgroundColor="{StaticResource WindowBackgroundColor}"
+    BackgroundColor="{AppThemeBinding 
+                    Dark={StaticResource WindowBackgroundColorDark}, 
+                    Light={StaticResource WindowBackgroundColor}}"
     Shell.PresentationMode="Modal">
     <ContentPage.BindingContext>
         <viewmodel:AddMyCoffeeViewModel />

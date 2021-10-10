@@ -24,10 +24,17 @@ namespace MyCoffeeApp.Services
 
         static InternetCoffeeService()
         {
-            client = new HttpClient
+            try
             {
-                BaseAddress = new Uri(BaseUrl)
-            };
+                client = new HttpClient
+                {
+                    BaseAddress = new Uri(BaseUrl)
+                };
+            }
+            catch
+            {
+
+            }
         }
 
         public static Task<IEnumerable<Coffee>> GetCoffee() =>
@@ -62,7 +69,7 @@ namespace MyCoffeeApp.Services
         static Random random = new Random();
         public static async Task AddCoffee(string name, string roaster)
         {
-            var image = "https://www.yesplz.coffee/app/uploads/2020/11/emptybag-min.png";
+            var image = "coffeebag.png";
             var coffee = new Coffee
             {
                 Name = name,

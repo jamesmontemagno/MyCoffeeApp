@@ -87,7 +87,7 @@ namespace MyCoffeeApp.ViewModels
             if (Coffee.Count >= 20)
                 return;
 
-            var image = "https://www.yesplz.coffee/app/uploads/2020/11/emptybag-min.png";
+            var image = "coffeebag.png";
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Sip of Sunshine", Image = image });
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Potable", Image = image });
             Coffee.Add(new Coffee { Roaster = "Yes Plz", Name = "Potent Potable", Image = image });

@@ -207,4 +207,7 @@
       <Name>MyCoffeeApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coffeebag.png" />
+  </ItemGroup>
 </Project>
