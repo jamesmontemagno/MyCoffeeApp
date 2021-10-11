@@ -106,7 +106,28 @@
                                     Light={StaticResource SystemGray5Dark}}"
                              Glyph="{StaticResource IconCoffee}"/>
         </FlyoutItem.Icon>
-        <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage" />
+        <Tab Title="Coffee">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FAS"
+                             Color="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}"
+                             Glyph="{StaticResource IconCoffee}"/>
+            </Tab.Icon>
+            <ShellContent Title="Light" ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage" />
+            <ShellContent Title="Medium" ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage2" />
+            <ShellContent Title="Dark" ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage3" />
+        </Tab>
+        <Tab Title="Espresso">
+            <Tab.Icon>
+                <FontImageSource FontFamily="FAS"
+                             Color="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}"
+                             Glyph="{x:Static fontAwesome:FontAwesomeIcons.MugHot}"/>
+            </Tab.Icon>
+            <ShellContent Title="tab 2" ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" Route="CoffeeEquipmentPage3" />
+        </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="Equipment - CV">
