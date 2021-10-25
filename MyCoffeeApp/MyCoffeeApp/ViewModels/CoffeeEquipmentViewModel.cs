@@ -1,6 +1,7 @@
 ﻿using MvvmHelpers;
 using MvvmHelpers.Commands;
 using MyCoffeeApp.Shared.Models;
+using MyCoffeeApp.Views;
 using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -66,7 +67,9 @@ namespace MyCoffeeApp.ViewModels
 
             SelectedCoffee = null;
 
-            await Application.Current.MainPage.DisplayAlert("Selected", coffee.Name, "OK");
+
+            await AppShell.Current.GoToAsync(nameof(AddMyCoffeePage));
+            //await Application.Current.MainPage.DisplayAlert("Selected", coffee.Name, "OK");
 
         }
 
