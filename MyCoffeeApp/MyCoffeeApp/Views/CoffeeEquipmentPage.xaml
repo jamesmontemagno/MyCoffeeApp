@@ -7,7 +7,8 @@
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+    xmlns:cells="clr-namespace:MyCoffeeApp.Cells"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
     BackgroundColor="{AppThemeBinding 
@@ -20,6 +21,29 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+
+            <DataTemplate x:Key="Normal">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem
+                            Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.FavoriteCommand}"
+                            CommandParameter="{Binding .}"
+                            Text="Favorite" />
+                        <MenuItem IsDestructive="True" Text="Delete" />
+                    </ViewCell.ContextActions>
+                    <cells:CoffeeCard/>
+                </ViewCell>
+            </DataTemplate>
+            <DataTemplate x:Key="Special">
+                <ViewCell>
+                    <cells:SpecialCell/>
+                </ViewCell>
+            </DataTemplate>
+
+            <cells:CoffeeDataTemplateSelector x:Key="CoffeeSelector"
+                    Normal="{StaticResource Normal}"
+                    Special="{StaticResource Special}"/>
+
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -35,43 +59,14 @@
         ItemsSource="{Binding CoffeeGroups}"
         RefreshCommand="{Binding RefreshCommand}"
         SelectedItem="{Binding SelectedCoffee, Mode=TwoWay}"
-        Style="{StaticResource CoffeeListView}">
+        Style="{StaticResource CoffeeListView}"
+        ItemTemplate="{StaticResource CoffeeSelector}">
         <ListView.Behaviors>
             <xct:EventToCommandBehavior
                 Command="{Binding SelectedCommand}"
                 EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"
                 EventName="ItemSelected" />
         </ListView.Behaviors>
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="model:Coffee">
-                <ViewCell>
-                    <ViewCell.ContextActions>
-                        <MenuItem
-                            Command="{Binding Source={x:Reference CoffeePage}, Path=BindingContext.FavoriteCommand}"
-                            CommandParameter="{Binding .}"
-                            Text="Favorite" />
-                        <MenuItem IsDestructive="True" Text="Delete" />
-                    </ViewCell.ContextActions>
-                    <Grid Padding="10">
-                        <Frame Style="{StaticResource CoffeeCard}">
-                            <StackLayout Orientation="Horizontal">
-                                <Image Source="{Binding Image}" WidthRequest="66" />
-                                <StackLayout VerticalOptions="Center">
-                                    <Label
-                                        Style="{StaticResource LabelLarge}"
-                                        Text="{Binding Name}"
-                                        VerticalOptions="Center" />
-                                    <Label
-                                        Style="{StaticResource LabelLarge}"
-                                        Text="{Binding Roaster}"
-                                        VerticalOptions="Center" />
-                                </StackLayout>
-                            </StackLayout>
-                        </Frame>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
         <ListView.GroupHeaderTemplate>
             <DataTemplate x:DataType="{x:Null}">
                 <ViewCell>
