@@ -165,6 +165,17 @@
         <ShellContent ContentTemplate="{DataTemplate local:InternetCoffeePage}" Route="InternetCoffeePage" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Image Cache">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FAS"
+                             Color="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}"
+                             Glyph="{x:Static fontAwesome:FontAwesomeIcons.Image}"/>
+        </FlyoutItem.Icon>
+        <ShellContent ContentTemplate="{DataTemplate local:ImageCachePage}" Route="ImageCachePage" />
+    </FlyoutItem>
+
 
     <FlyoutItem Title="Settings">
         <FlyoutItem.Icon>
