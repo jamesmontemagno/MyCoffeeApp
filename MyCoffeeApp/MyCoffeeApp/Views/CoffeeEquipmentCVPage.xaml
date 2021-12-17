@@ -6,7 +6,8 @@
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
-    xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
+    xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels" 
+    xmlns:cells="clr-namespace:MyCoffeeApp.Cells"
     x:Name="CoffeePage"
     BackgroundColor="{AppThemeBinding 
                     Dark={StaticResource WindowBackgroundColorDark}, 
@@ -60,23 +61,7 @@
                                     Text="Delete" />
                             </SwipeItems>
                         </SwipeView.RightItems>
-                        <Grid Padding="10">
-                            <Frame Style="{StaticResource CoffeeCard}">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding Image}" WidthRequest="66" />
-                                    <StackLayout VerticalOptions="Center">
-                                        <Label
-                                            Style="{StaticResource LabelLarge}"
-                                            Text="{Binding Name}"
-                                            VerticalOptions="Center" />
-                                        <Label
-                                            Style="{StaticResource LabelLarge}"
-                                            Text="{Binding Roaster}"
-                                            VerticalOptions="Center" />
-                                    </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                        </Grid>
+                        <cells:CoffeeCard/>
                     </SwipeView>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
