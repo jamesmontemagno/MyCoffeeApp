@@ -32,4 +32,10 @@
     <ProjectReference Include="..\..\MyCoffeeApp.Shared\MyCoffeeApp.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Views\AnimationPage.xaml.cs">
+      <DependentUpon>AnimationPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

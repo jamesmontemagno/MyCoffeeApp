@@ -1,7 +1,10 @@
-﻿using System;
+﻿using MvvmHelpers.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Xamarin.Forms;
+using Command = Xamarin.Forms.Command;
 
 namespace MyCoffeeApp.ViewModels
 {
@@ -29,7 +32,17 @@ namespace MyCoffeeApp.ViewModels
                 };
                 OnPropertyChanged(nameof(Image));
             });
+
+            RefreshLongCommand = new AsyncCommand(async () =>
+            {
+                IsBusy = true;
+                await Task.Delay(5000);
+                IsBusy = false;
+            });
+
         }
+
+        public AsyncCommand RefreshLongCommand { get; }
 
     }
 }

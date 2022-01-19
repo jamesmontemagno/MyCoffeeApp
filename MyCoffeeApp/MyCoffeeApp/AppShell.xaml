@@ -176,6 +176,18 @@
         <ShellContent ContentTemplate="{DataTemplate local:ImageCachePage}" Route="ImageCachePage" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Animations">
+        <FlyoutItem.Icon>
+            <FontImageSource FontFamily="FAS"
+                             Color="{AppThemeBinding 
+                                    Dark=White, 
+                                    Light={StaticResource SystemGray5Dark}}"
+                             Glyph="{x:Static fontAwesome:FontAwesomeIcons.Spinner}"/>
+        </FlyoutItem.Icon>
+        <ShellContent ContentTemplate="{DataTemplate local:AnimationPage}" Route="AnimationPage" />
+    </FlyoutItem>
+
+
 
     <FlyoutItem Title="Settings">
         <FlyoutItem.Icon>
