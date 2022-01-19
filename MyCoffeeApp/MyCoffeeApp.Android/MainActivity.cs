@@ -66,10 +66,8 @@ namespace MyCoffeeApp.Droid
             
 
             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
-            {         
-
-                var wic = new WindowInsetsControllerCompat(window, window.DecorView);              
-                wic.AppearanceLightStatusBars = darkStatusBarTint;
+            {   
+                WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = darkStatusBarTint;
             }
 
             window.SetStatusBarColor(color.ToPlatformColor());
