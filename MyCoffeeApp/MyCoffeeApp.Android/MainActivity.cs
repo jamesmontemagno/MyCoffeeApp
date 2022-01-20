@@ -53,7 +53,6 @@ namespace MyCoffeeApp.Droid
     {
         public async void SetStatusBarColor(System.Drawing.Color color, bool darkStatusBarTint)
         {
-            await Task.Delay(50);
             if (Build.VERSION.SdkInt < Android.OS.BuildVersionCodes.Lollipop)
                 return;
 
@@ -67,6 +66,7 @@ namespace MyCoffeeApp.Droid
 
             if (Build.VERSION.SdkInt >= Android.OS.BuildVersionCodes.M)
             {   
+                await Task.Delay(50);
                 WindowCompat.GetInsetsController(window, window.DecorView).AppearanceLightStatusBars = darkStatusBarTint;
             }
 
