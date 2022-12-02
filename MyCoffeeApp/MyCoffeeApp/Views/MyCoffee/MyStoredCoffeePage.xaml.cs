@@ -1,29 +1,19 @@
 ﻿using MyCoffeeApp.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace MyCoffeeApp.Views
+namespace MyCoffeeApp.Views;
+public partial class MyStoredCoffeePage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyStoredCoffeePage : ContentPage
+    public MyStoredCoffeePage(MyCoffeeViewModel vm)
     {
-        public MyStoredCoffeePage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        BindingContext = vm;
+    }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            var vm = (MyCoffeeViewModel)BindingContext;
-            if (vm.Coffee.Count == 0)
-                await vm.RefreshCommand.ExecuteAsync();
-        }
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        var vm = (MyCoffeeViewModel)BindingContext;
+        if (vm.Coffee.Count == 0)
+            await vm.RefreshCommand.ExecuteAsync(null);
     }
 }

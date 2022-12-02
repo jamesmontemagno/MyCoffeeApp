@@ -1,118 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application
-    x:Class="MyCoffeeApp.App"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
-    <!--
-        Define global resources and styles here, that apply to all pages in your app.
-    -->
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MyCoffeeApp"
+             x:Class="MyCoffeeApp.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#2196F3</Color>
-            <Color x:Key="TextColor">#000000</Color>
-            <Color x:Key="TextColorDark">White</Color>
-
-            <Color x:Key="WindowBackgroundColor">#f2f2f7</Color>
-            <Color x:Key="WindowBackgroundColorDark">Black</Color>
-
-            <Color x:Key="CardBackground">White</Color>
-            <Color x:Key="CardBackgroundDark">#1C1C1E</Color>
-            
-            <Color x:Key="SystemBlue">#007AFF</Color>
-            <Color x:Key="SystemGreen">#34C759</Color>
-            <Color x:Key="SystemIndigo">#5856D6</Color>
-            <Color x:Key="SystemOrange">#FF9500</Color>
-            <Color x:Key="SystemPink">#FF2D55</Color>
-            <Color x:Key="SystemPurple">#AF52DE</Color>
-            <Color x:Key="SystemRed">#FF3B30</Color>
-            <Color x:Key="SystemTeal">#5AC8FA</Color>
-            <Color x:Key="SystemYellow">#FFCC00</Color>
-
-            <Color x:Key="SystemGray">#8E8E93</Color>
-            <Color x:Key="SystemGray2">#AEAEB2</Color>
-            <Color x:Key="SystemGray3">#C7C7CC</Color>
-            <Color x:Key="SystemGray4">#D1D1D6</Color>
-            <Color x:Key="SystemGray5">#E5E5EA</Color>
-            <Color x:Key="SystemGray6">#F2F2F7</Color>
-
-            <Color x:Key="SystemBlueDark">#0A84FF</Color>
-            <Color x:Key="SystemGreenDark">#30D158</Color>
-            <Color x:Key="SystemIndigoDark">#5E5CE6</Color>
-            <Color x:Key="SystemOrangeDark">#FF9F0A</Color>
-            <Color x:Key="SystemPinkDark">#FF375F</Color>
-            <Color x:Key="SystemPurpleDark">#BF5AF2</Color>
-            <Color x:Key="SystemRedDark">#FF453A</Color>
-            <Color x:Key="SystemTealDark">#64D2FF</Color>
-            <Color x:Key="SystemYellowDark">#FFD60A</Color>
-
-            <Color x:Key="SystemGrayDark">#8E8E93</Color>
-            <Color x:Key="SystemGray2Dark">#636366</Color>
-            <Color x:Key="SystemGray3Dark">#484848</Color>
-            <Color x:Key="SystemGray4Dark">#3A3A3C</Color>
-            <Color x:Key="SystemGray5Dark">#2C2C2E</Color>
-            <Color x:Key="SystemGray6Dark">#1C1C1E</Color>
-
-            <Style x:Key="CoffeeListView" TargetType="ListView">
-                <Setter Property="HasUnevenRows" Value="True"/>
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="SeparatorVisibility"
-                        Value="None"/>
-                <Setter Property="RefreshControlColor"
-                        Value="{StaticResource SystemBlue}"/>
-                <Setter Property="IsPullToRefreshEnabled"
-                        Value="True"/>
-            </Style>
-
-            <Style x:Key="BaseRefreshView" TargetType="RefreshView">
-                <Setter Property="RefreshColor"
-                        Value="{StaticResource SystemBlue}"/>
-            </Style>
-
-            <Style x:Key="BaseLabel" TargetType="Label">
-                <Setter Property="TextColor" 
-                        Value="{AppThemeBinding Dark={StaticResource TextColorDark},
-                    Light={StaticResource TextColor}}" />
-            </Style>
-
-            <Style x:Key="LabelMicro" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
-                <Setter Property="FontSize" Value="Micro"/>
-            </Style>
-            <Style x:Key="LabelSmall" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
-                <Setter Property="FontSize" Value="Small"/>
-            </Style>
-
-            <Style x:Key="LabelMedium" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
-                <Setter Property="FontSize" Value="Medium"/>
-            </Style>
-
-            <Style x:Key="LabelLarge" TargetType="Label" BasedOn="{StaticResource BaseLabel}">
-                <Setter Property="FontSize" Value="Large"/>
-            </Style>
-
-            <Style x:Key="ButtonOutline" TargetType="Button">
-                <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark},
-                    Light={StaticResource TextColor}}" />
-                <Setter Property="WidthRequest" Value="150" />
-                <Setter Property="HeightRequest" Value="{OnPlatform iOS=30, Android=40}" />
-                <Setter Property="FontSize" Value="Small" />
-                <Setter Property="CornerRadius" Value="6" />
-                <Setter Property="BorderWidth" Value="1" />
-                <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="BorderColor" Value="{AppThemeBinding Dark={StaticResource TextColorDark},
-                    Light={StaticResource TextColor}}" />
-                <Setter Property="HorizontalOptions" Value="Center" />
-            </Style>
-                        
-            <Style x:Key="CoffeeCard" TargetType="Frame">
-                <Setter Property="HasShadow" 
-                        Value="{OnPlatform Android=true, iOS=false, Default=true}"/>
-                <Setter Property="CornerRadius" Value="20"/>
-                <Setter Property="BackgroundColor"
-                        Value="{AppThemeBinding Dark={StaticResource CardBackgroundDark},
-                    Light={StaticResource CardBackground}}"/>
-            </Style>
-
-            <x:String x:Key="IconCoffee">&#xf0f4;</x:String>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/CoffeeAppStyles.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

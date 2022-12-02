@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text;
+﻿namespace MyCoffeeApp.Helpers;
 
-namespace MyCoffeeApp.Helpers
+public interface IEnvironment
 {
-    public interface IEnvironment
-    {
-        void SetStatusBarColor(Color color, bool darkStatusBarTint);
-    }
+    void SetStatusBarColor(Microsoft.Maui.Graphics.Color color, bool darkStatusBarTint);
 }

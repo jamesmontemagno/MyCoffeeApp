@@ -1,22 +1,19 @@
 ﻿using MyCoffeeApp.Views;
-using Xamarin.Forms;
 
-namespace MyCoffeeApp
+namespace MyCoffeeApp;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(AddMyCoffeePage),
+typeof(AddMyCoffeePage));
 
-            Routing.RegisterRoute(nameof(AddMyCoffeePage),
-                typeof(AddMyCoffeePage));
+        Routing.RegisterRoute(nameof(MyCoffeeDetailsPage),
+            typeof(MyCoffeeDetailsPage));
 
-            Routing.RegisterRoute(nameof(MyCoffeeDetailsPage),
-                typeof(MyCoffeeDetailsPage));
-
-            Routing.RegisterRoute(nameof(RegistrationPage),
-                typeof(RegistrationPage));
-        }
+        Routing.RegisterRoute(nameof(RegistrationPage),
+            typeof(RegistrationPage));
     }
 }

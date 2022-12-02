@@ -1,26 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="MyCoffeeApp.Views.CoffeeEquipmentPage"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:fontAwesome="clr-namespace:FontAwesome"
     xmlns:model="clr-namespace:MyCoffeeApp.Shared.Models;assembly=MyCoffeeApp.Shared"
     xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
     xmlns:viewmodels="clr-namespace:MyCoffeeApp.ViewModels"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+    xmlns:xct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit" 
     xmlns:cells="clr-namespace:MyCoffeeApp.Cells"
     x:Name="CoffeePage"
     x:DataType="viewmodels:CoffeeEquipmentViewModel"
     BackgroundColor="{AppThemeBinding 
                         Dark={StaticResource WindowBackgroundColorDark}, 
                         Light={StaticResource WindowBackgroundColor}}">
-    <ContentPage.BindingContext>
-        <viewmodels:CoffeeEquipmentViewModel />
-    </ContentPage.BindingContext>
-
     <ContentPage.Resources>
         <ResourceDictionary>
-            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+            <xct:SelectedItemEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
 
             <DataTemplate x:Key="Normal">
                 <ViewCell>

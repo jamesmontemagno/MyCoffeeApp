@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MyCoffeeApp.ViewModels;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace MyCoffeeApp.Views
+namespace MyCoffeeApp.Views;
+public partial class CoffeeEquipmentCVPage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CoffeeEquipmentCVPage : ContentPage
+    public CoffeeEquipmentCVPage(CoffeeEquipmentViewModel vm)
     {
-        public CoffeeEquipmentCVPage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        BindingContext = vm;
     }
 }
