@@ -1,11 +1,14 @@
-﻿using MvvmHelpers;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace MyCoffeeApp.ViewModels;
 
-namespace MyCoffeeApp.ViewModels
+public partial class ViewModelBase : ObservableObject
 {
-    public class ViewModelBase : BaseViewModel
-    {
-    }
+    [ObservableProperty]
+    string title;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsNotBusy))]
+    bool isBusy;
+
+
+    public bool IsNotBusy => !IsBusy;
 }

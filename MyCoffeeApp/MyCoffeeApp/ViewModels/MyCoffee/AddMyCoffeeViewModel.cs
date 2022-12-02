@@ -1,41 +1,35 @@
-﻿using MvvmHelpers.Commands;
-using MyCoffeeApp.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
+﻿using MyCoffeeApp.Services;
 
-namespace MyCoffeeApp.ViewModels
+namespace MyCoffeeApp.ViewModels;
+
+[QueryProperty(nameof(Name), nameof(Name))]
+public partial class AddMyCoffeeViewModel : ViewModelBase
 {
-    [QueryProperty(nameof(Name), nameof(Name))]
-    public class AddMyCoffeeViewModel : ViewModelBase
+
+    [ObservableProperty]
+    string name;
+
+    [ObservableProperty]
+    string roaster;
+
+    ICoffeeService coffeeService;
+    public AddMyCoffeeViewModel(ICoffeeService coffeeService)
     {
-        
-        string name, roaster;
-        public string Name { get => name; set => SetProperty(ref name, value); }
-        public string Roaster { get => roaster; set => SetProperty(ref roaster, value); }
+        Title = "Add Coffee";
+        this.coffeeService = coffeeService;
+    }
 
-        public AsyncCommand SaveCommand { get; }
-        ICoffeeService coffeeService;
-        public AddMyCoffeeViewModel()
+    [RelayCommand]
+    async Task Save()
+    {
+        if(string.IsNullOrWhiteSpace(name) ||
+            string.IsNullOrWhiteSpace(roaster))
         {
-            Title = "Add Coffee";
-            SaveCommand = new AsyncCommand(Save);
-            coffeeService = DependencyService.Get<ICoffeeService>();
+            return;
         }
 
-        async Task Save()
-        {
-            if(string.IsNullOrWhiteSpace(name) ||
-                string.IsNullOrWhiteSpace(roaster))
-            {
-                return;
-            }
+        await coffeeService.AddCoffee(name, roaster);
 
-            await coffeeService.AddCoffee(name, roaster);
-
-            await Shell.Current.GoToAsync("..");
-        }
+        await Shell.Current.GoToAsync("..");
     }
 }

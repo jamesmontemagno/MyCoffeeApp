@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace MyCoffeeApp.Cells;
 
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace MyCoffeeApp.Cells
+public partial class SpecialCell : ContentView
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SpecialCell : ContentView
+    public SpecialCell()
     {
-        public SpecialCell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

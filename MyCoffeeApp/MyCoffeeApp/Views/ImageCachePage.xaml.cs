@@ -1,20 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace MyCoffeeApp.Views
+﻿namespace MyCoffeeApp.Views;
+public partial class ImageCachePage : ContentPage
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ImageCachePage : ContentPage
+    public ImageCachePage(ImageCacheViewModel vm)
     {
-        public ImageCachePage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        BindingContext = vm;
     }
 }

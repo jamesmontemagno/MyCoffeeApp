@@ -1,62 +1,49 @@
 ﻿using MvvmHelpers;
-using MvvmHelpers.Commands;
-using MyCoffeeApp.Services;
 using MyCoffeeApp.Shared.Models;
-using System.Linq;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Command = MvvmHelpers.Commands.Command;
 
-namespace MyCoffeeApp.ViewModels
+namespace MyCoffeeApp.ViewModels;
+
+public partial class InternetCoffeeViewModel : ViewModelBase
 {
-    public class InternetCoffeeViewModel : ViewModelBase
+    public ObservableRangeCollection<Coffee> Coffee { get; set; }
+
+    public InternetCoffeeViewModel()
     {
-        public ObservableRangeCollection<Coffee> Coffee { get; set; }
-        public AsyncCommand RefreshCommand { get; }
-        public AsyncCommand AddCommand { get; }
-        public AsyncCommand<Coffee> RemoveCommand { get; }
 
+        Title = "Internet Coffee";
 
-        public InternetCoffeeViewModel()
-        {
+        Coffee = new ObservableRangeCollection<Coffee>();
+    }
 
-            Title = "Internet Coffee";
+    [RelayCommand]
+    async Task Add()
+    {
+        var name = await App.Current.MainPage.DisplayPromptAsync("Name", "Name of coffee");
+        var roaster = await App.Current.MainPage.DisplayPromptAsync("Roaster", "Roaster of coffee");
+        await InternetCoffeeService.AddCoffee(name, roaster);
+        await Refresh();
+    }
 
-            Coffee = new ObservableRangeCollection<Coffee>();
-  
+    [RelayCommand]
+    async Task Remove(Coffee coffee)
+    {
+        await InternetCoffeeService.RemoveCoffee(coffee.Id);
+        await Refresh();
+    }
 
-            RefreshCommand = new AsyncCommand(Refresh);
-            AddCommand = new AsyncCommand(Add);
-            RemoveCommand = new AsyncCommand<Coffee>(Remove);
-        }
+    [RelayCommand]
+    async Task Refresh()
+    {
+        IsBusy = true;
 
-        async Task Add()
-        {
-            var name = await App.Current.MainPage.DisplayPromptAsync("Name", "Name of coffee");
-            var roaster = await App.Current.MainPage.DisplayPromptAsync("Roaster", "Roaster of coffee");
-            await InternetCoffeeService.AddCoffee(name, roaster);
-            await Refresh();
-        }
+        await Task.Delay(2000);
 
-        async Task Remove(Coffee coffee)
-        {
-            await InternetCoffeeService.RemoveCoffee(coffee.Id);
-            await Refresh();
-        }
+        Coffee.Clear();
 
-        async Task Refresh()
-        {
-            IsBusy = true;
+        var coffees = await InternetCoffeeService.GetCoffee();
 
-            await Task.Delay(2000);
+        Coffee.AddRange(coffees);
 
-            Coffee.Clear();
-
-            var coffees = await InternetCoffeeService.GetCoffee();
-
-            Coffee.AddRange(coffees);
-
-            IsBusy = false;
-        }
+        IsBusy = false;
     }
 }

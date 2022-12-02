@@ -1,48 +1,39 @@
-﻿using MvvmHelpers.Commands;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using Xamarin.Forms;
-using Command = Xamarin.Forms.Command;
+﻿namespace MyCoffeeApp.ViewModels;
 
-namespace MyCoffeeApp.ViewModels
+public partial class ImageCacheViewModel : ViewModelBase
 {
-    public  class ImageCacheViewModel : ViewModelBase
+    [ObservableProperty]
+    UriImageSource image;
+
+    public ImageCacheViewModel()
     {
-        public UriImageSource Image { get; set; } =
-            new UriImageSource
-            {
-                Uri = new Uri("https://images.wsdot.wa.gov/sw/005vc00032.jpg"),
-                CachingEnabled = true,
-                CacheValidity = TimeSpan.FromMinutes(1)
-            };
-
-        public Command RefreshCommand { get; }
-
-        public ImageCacheViewModel()
+        Image = new UriImageSource
         {
-            RefreshCommand = new Command(() =>
-            {
-                Image = new UriImageSource
-                {
-                    Uri = new Uri("https://images.wsdot.wa.gov/sw/005vc00032.jpg"),
-                    CachingEnabled = true,
-                    CacheValidity = TimeSpan.FromMinutes(1)
-                };
-                OnPropertyChanged(nameof(Image));
-            });
+            Uri = new Uri("https://images.wsdot.wa.gov/sw/005vc00032.jpg"),
+            CachingEnabled = true,
+            CacheValidity = TimeSpan.FromMinutes(1)
+        };
 
-            RefreshLongCommand = new AsyncCommand(async () =>
-            {
-                IsBusy = true;
-                await Task.Delay(5000);
-                IsBusy = false;
-            });
+    }
 
-        }
+    [RelayCommand]
+    void Refresh()
+    {
+        Image = new UriImageSource
+        {
+            Uri = new Uri("https://images.wsdot.wa.gov/sw/005vc00032.jpg"),
+            CachingEnabled = true,
+            CacheValidity = TimeSpan.FromMinutes(1)
+        };
+        OnPropertyChanged(nameof(Image));
+    }
 
-        public AsyncCommand RefreshLongCommand { get; }
+    [RelayCommand]
+    async Task RefreshLong()
+    {
 
+        IsBusy = true;
+        await Task.Delay(5000);
+        IsBusy = false;
     }
 }

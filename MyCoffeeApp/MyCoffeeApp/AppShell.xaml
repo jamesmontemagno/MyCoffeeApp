@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
     x:Class="MyCoffeeApp.AppShell"
-    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MyCoffeeApp.Views"
+    xmlns:test="clr-namespace:MyCoffeeApp"
     xmlns:fontAwesome="clr-namespace:FontAwesome"
     Title="MyCoffeeApp"
     FlyoutBackgroundColor="{AppThemeBinding 
@@ -11,12 +12,7 @@
                     Light={StaticResource WindowBackgroundColor}}"
     >
 
-    <!--
-        The overall app visual hierarchy is defined here, along with navigation.
-        
-        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
-    -->
-
+ 
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
@@ -33,10 +29,6 @@
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="FlyoutItem" />
 
-            <!--
-                Default Styles for all Flyout Items
-                https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/flyout#flyoutitem-and-menuitem-style-classes
-            -->
             <Style Class="FlyoutItemLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="White" />
             </Style>
@@ -64,9 +56,6 @@
                 </Setter>
             </Style>
 
-            <!--
-                Custom Style you can apply to any Flyout Item
-            -->
             <Style
                 ApplyToDerivedTypes="True"
                 Class="MenuItemLayoutStyle"
@@ -86,19 +75,13 @@
         </ResourceDictionary>
     </Shell.Resources>
 
- 
-    <!--
-        When the Flyout is visible this defines the content to display in the flyout.
-        FlyoutDisplayOptions="AsMultipleItems" will create a separate flyout item for each child element
-        https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
-    -->
-
-    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+    
+    <!--<ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
         <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
-    </ShellItem>
+    </ShellItem>-->
 
 
-    <FlyoutItem Title="Equipment" >
+    <FlyoutItem Title="Equipment">
         <FlyoutItem.Icon>
             <FontImageSource FontFamily="FAS"
                              Color="{AppThemeBinding 
@@ -130,6 +113,7 @@
         </Tab>
     </FlyoutItem>
 
+   
     <FlyoutItem Title="Equipment - CV">
         <FlyoutItem.Icon>
             <FontImageSource FontFamily="FAS"
@@ -141,7 +125,7 @@
         <ShellContent ContentTemplate="{DataTemplate local:CoffeeEquipmentCVPage}" Route="CoffeeEquipmentCVPage" />
     </FlyoutItem>
 
-
+  
     <FlyoutItem Title="My Coffee">
         <FlyoutItem.Icon>
             <FontImageSource FontFamily="FAS"

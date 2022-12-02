@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace MyCoffeeApp.Services;
 
-namespace MyCoffeeApp.Services
+public interface IToast
 {
-    public interface IToast
-    {
-        void MakeToast(string message);
-    }
+    void MakeToast(string message);
 }
